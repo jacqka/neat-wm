@@ -180,7 +180,7 @@ Props::Session *get_xserver_session(Display *dpy, Window *win){
 				tty.scr->visual = XDefaultVisual(dpy);
 		
 		
-			tty.disp = get_map_display(dpy, win, tty.scr->num);
+			tty.disp = get_map_display(tty.scr->dpy, win, tty.scr->num);
 				
 				tty.planes = XDisplayPlanes(dpy, screen->num);
 					
