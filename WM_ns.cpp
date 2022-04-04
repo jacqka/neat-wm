@@ -133,7 +133,7 @@ Props::Fixed::HW_Display *get_map_display(Display *dpy, Window *win, int num){
 	
 	Props::Fixed::HW_Display *disp;
 
-	size_t *dpy_ptr = calloc(1, sizeof(dpy));
+	size_t *dpy_ptr = (Display *) calloc(1, sizeof(dpy));
 		
 		memset(dpy_ptr, dpy, sizeof(dpy));
 				
