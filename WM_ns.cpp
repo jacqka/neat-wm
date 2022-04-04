@@ -143,7 +143,7 @@ Props::Fixed::HW_Display *get_map_display(Display *dpy, Window *win, int num){
 		disp->height = XDisplayHeight(dpy_ptr, num);
 		disp->cells = XDisplayCells(dpy_ptr, num);
 			
-				disp->dpy = realloc(dpy_ptr, sizeof(dpy));
+				disp->dpy = realloc(dpy_ptr, sizeof(disp->dpy));
 				
 			Xfree(dpy_ptr);
 
