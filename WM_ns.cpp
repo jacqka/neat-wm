@@ -58,7 +58,7 @@ namespace Props {
 			struct Display_HW {
 
 				Display *dpy;
-				
+				int *screen;
 				const unsigned int height, width;
 				unsigned long **plane;
 
@@ -95,6 +95,7 @@ namespace Props {
 					
 					Window *w;
 					
+					int screen;
 					Props::Fixed::Display_HW *disp;
 
 					unsigned int num;
@@ -128,8 +129,7 @@ namespace Props {
 
 namespace Event {
 
-Props::Fixed::HW_Display *get_map_display(Display *dpy, Window *win, int num){
-			
+Props::Fixed::HW_Display *get_map_display(Display *dpy, Window *win, int num, int flag){	
 	
 	Props::Fixed::HW_Display *disp;
 
@@ -143,10 +143,15 @@ Props::Fixed::HW_Display *get_map_display(Display *dpy, Window *win, int num){
 		disp->height = XDisplayHeight(dpy_ptr, num);
 		disp->cells = XDisplayCells(dpy_ptr, num);
 			
-				disp->dpy = realloc(dpy_ptr, sizeof(disp->dpy));
-				
-			Xfree(dpy_ptr);
+		disp->dpy = realloc(dpy_ptr, sizeof(disp->dpy));
 
+				disp->screen = XDefaultScreen(dpy_ptr);
+
+		if(!flag){
+					
+			Xfree(dpy_ptr);
+							}
+				// else { }
 			get_map_screen(disp, d);
 
 		return disp; 
