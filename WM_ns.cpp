@@ -7,7 +7,9 @@
 #include<X11/Xproto.h>
 #include<X11/Xatom.h>
 #include<X11/Xutil.h>
-				/* a template function for semantically similar permutations on fundamentally different atoms 
+#include<vector>
+#include<memory>
+				/* a template function for semantically similar permutations for fundamentally different atoms 
 						or something like that at bottom of this ns*/
 typedef uint16_t bus_t;
 
